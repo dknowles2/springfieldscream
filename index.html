@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Springfield Scream — a friendly haunt on Colfax Rd</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&amp;family=Cinzel:wght@400;500;600&amp;family=EB+Garamond:ital,wght@0,400;0,500;1,400&amp;display=swap">
+<link rel="stylesheet" href="./nocturne.css">
+<style>
+  body { margin: 0; }
+  @keyframes flick { 0%,100%{opacity:.85} 43%{opacity:.6} 46%{opacity:.95} 55%{opacity:.7} }
+  a { color: var(--color-accent); }
+  a:hover { color: var(--color-accent-300); }
+  .ss-rail::-webkit-scrollbar { display: none; }
+</style>
+</helmet>
+
+<div style="--font-heading:'Cinzel', serif;--font-body:'EB Garamond', serif;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);min-height:100vh;overflow-x:hidden">
+
+  <header style="position:sticky;top:0;z-index:20;backdrop-filter:blur(10px);background:color-mix(in srgb, var(--color-bg) 82%, transparent)">
+    <nav class="nav" style="max-width:1100px;margin:0 auto;padding:14px 28px;gap:24px">
+      <a href="#top" class="nav-brand" style="display:flex;align-items:center;gap:10px;font-family:'Cinzel Decorative', serif;font-weight:700;letter-spacing:0">
+        <span style="width:9px;height:9px;border-radius:50%;background:var(--color-accent);box-shadow:0 0 14px 2px var(--color-accent);animation:flick 4.2s infinite"></span>
+        Springfield Scream
+      </a>
+      <a href="#scary" style="font-family:var(--font-heading);font-size:14px;letter-spacing:.04em">How scary?</a>
+      <a href="#photos" style="font-family:var(--font-heading);font-size:14px;letter-spacing:.04em">Photos</a>
+      <a href="#visit" style="font-family:var(--font-heading);font-size:14px;letter-spacing:.04em">Visit</a>
+    </nav>
+  </header>
+
+  <section id="top" style="max-width:1100px;margin:0 auto;padding:64px 28px 0;position:relative">
+    <div style="position:absolute;top:-140px;left:-160px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle, color-mix(in srgb, var(--color-accent) 16%, transparent), transparent 68%);pointer-events:none"></div>
+    <div style="position:relative">
+      <sc-if value="{{ phaseCountdown }}" hint-placeholder-val="{{ true }}">
+        <a href="#dates" style="display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:9px 16px;max-width:100%;box-sizing:border-box;border:1px solid color-mix(in srgb, var(--color-accent) 45%, transparent);border-radius:999px;text-decoration:none;color:var(--color-text);font-size:16px;background:color-mix(in srgb, var(--color-accent-900) 35%, transparent)" style-hover="border-color:var(--color-accent)">
+          <span style="width:7px;height:7px;border-radius:50%;background:var(--color-accent);box-shadow:0 0 10px var(--color-accent)"></span>
+          <span style="color:var(--color-accent-300);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-family:var(--font-heading)">{{ heroLabel }}</span>
+          <span style="font-family:var(--font-heading);font-weight:500;font-size:18px;font-variant-numeric:tabular-nums;white-space:nowrap">{{ cdDays }}d {{ cdHours }}h {{ cdMins }}m {{ cdSecs }}s</span>
+          <span class="text-muted" style="font-size:15px">{{ heroWhen }}</span>
+        </a>
+      </sc-if>
+      <sc-if value="{{ phaseOpen }}" hint-placeholder-val="{{ false }}">
+        <a href="#visit" style="display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:9px 16px;max-width:100%;box-sizing:border-box;border:1px solid color-mix(in srgb, var(--color-accent) 45%, transparent);border-radius:999px;text-decoration:none;color:var(--color-text);font-size:16px;background:color-mix(in srgb, var(--color-accent-900) 35%, transparent)" style-hover="border-color:var(--color-accent)">
+          <span style="width:7px;height:7px;border-radius:50%;background:var(--color-accent);box-shadow:0 0 10px var(--color-accent)"></span>
+          <span style="font-family:var(--font-heading);font-weight:500;font-size:18px">Open right now</span>
+          <span class="text-muted" style="font-size:15px">until 8:00pm tonight</span>
+        </a>
+      </sc-if>
+      <sc-if value="{{ phaseOver }}" hint-placeholder-val="{{ false }}">
+        <a href="#dates" style="display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:9px 16px;max-width:100%;box-sizing:border-box;border:1px solid color-mix(in srgb, var(--color-accent) 45%, transparent);border-radius:999px;text-decoration:none;color:var(--color-text);font-size:16px;background:color-mix(in srgb, var(--color-accent-900) 35%, transparent)" style-hover="border-color:var(--color-accent)">
+          <span style="font-family:var(--font-heading);font-weight:500;font-size:17px">See you next year — if you survive.</span>
+        </a>
+      </sc-if>
+      <h1 style="font-family:'Cinzel Decorative', serif;font-weight:700;font-size:clamp(44px,9vw,116px);line-height:1;letter-spacing:0;margin:24px 0 0;max-width:14ch">Springfield<br>Scream</h1>
+      <p style="font-size:clamp(19px,2.4vw,24px);line-height:1.45;max-width:46ch;margin:28px 0 0;color:color-mix(in srgb, var(--color-text) 78%, transparent);text-wrap:pretty">Fog, candlelight, a pipe organ that won't quit, and exactly one spider who takes his job very seriously. Five minutes of tastefully creepy. Zero gore, zero chainsaws, zero blood — we're a haunted <em>garage</em>, not a haunted meat locker.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:36px">
+        <a href="#visit" class="btn btn-primary" style="font-family:var(--font-heading);font-size:14px;letter-spacing:.04em;padding:11px 22px;">Find the garage</a>
+        <a href="#scary" class="btn btn-secondary" style="font-family:var(--font-heading);font-size:14px;letter-spacing:.04em;padding:11px 22px;">Is it too scary for my kid?</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1100px;margin:0 auto;padding:56px 28px 0">
+    <div class="lighten" style="position:relative;width:100%;height:clamp(260px,42vw,460px);border-radius:var(--radius-lg);overflow:hidden">
+      <img src="./assets/house.jpg" alt="The house and garage at night, lit purple and red, with an ENTER IF YOU DARE banner over the garage door" style="width:100%;height:100%;object-fit:cover;object-position:center 62%">
+    </div>
+  </section>
+
+  <section style="max-width:1100px;margin:0 auto;padding:72px 28px 0">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:2px;background:var(--color-divider);border:1px solid var(--color-divider);border-radius:var(--radius-md);overflow:hidden">
+      <div style="background:var(--color-bg);padding:26px 22px">
+        <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-family:var(--font-heading);color:var(--color-accent)">Runtime</div>
+        <div style="font-size:34px;line-height:1.1;margin-top:8px;font-family:var(--font-heading);font-weight:500">5 min</div>
+        <div class="text-muted" style="font-size:15px;margin-top:4px">Walk-through, one way out</div>
+      </div>
+      <div style="background:var(--color-bg);padding:26px 22px">
+        <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-family:var(--font-heading);color:var(--color-accent)">Admission</div>
+        <div style="font-size:34px;line-height:1.1;margin-top:8px;font-family:var(--font-heading);font-weight:500">Free</div>
+        <div class="text-muted" style="font-size:15px;margin-top:4px">No tickets, no line reservations, just show up</div>
+      </div>
+      <div style="background:var(--color-bg);padding:26px 22px">
+        <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-family:var(--font-heading);color:var(--color-accent)">Gore level</div>
+        <div style="font-size:34px;line-height:1.1;margin-top:8px;font-family:var(--font-heading);font-weight:500">None</div>
+        <div class="text-muted" style="font-size:15px;margin-top:4px">Spooky, not splattery. Nothing you'd need to explain later</div>
+      </div>
+      <div style="background:var(--color-bg);padding:26px 22px">
+        <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-family:var(--font-heading);color:var(--color-accent)">Where</div>
+        <div style="font-size:34px;line-height:1.1;margin-top:8px;font-family:var(--font-heading);font-weight:500">Colfax Rd</div>
+        <div class="text-muted" style="font-size:15px;margin-top:4px">Springfield, NJ — it's the one with the fog</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="scary" style="margin-top:96px;padding:80px 0;background:linear-gradient(180deg, transparent, color-mix(in srgb, var(--color-accent-900) 55%, transparent) 22%, color-mix(in srgb, var(--color-accent-900) 55%, transparent) 78%, transparent)">
+    <div style="max-width:1100px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:56px;align-items:start">
+      <div>
+        <h6 style="color:var(--color-accent);margin-bottom:16px">For the grown-ups</h6>
+        <h2 style="font-size:clamp(28px,4vw,44px);letter-spacing:0;line-height:1.06;max-width:16ch">How scary is it, honestly?</h2>
+        <p style="max-width:44ch;margin-top:18px;font-size:18px;color:color-mix(in srgb, var(--color-text) 80%, transparent);text-wrap:pretty">Think Disney's Haunted Mansion at one one-thousandth the budget. Atmosphere does the heavy lifting: fog, low light, spooky music, a few animated props.</p>
+        <p style="max-width:44ch;font-size:18px;color:color-mix(in srgb, var(--color-text) 80%, transparent)">Most kids around 6 and up have a great time. Younger than that, walk in holding a hand and you'll be fine — and if anyone wants out early, just say so and we'll flip the lights on and open the side gate. No questions, no judgment.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:2px;background:var(--color-divider);border:1px solid var(--color-divider);border-radius:var(--radius-md);overflow:hidden">
+        <div style="background:var(--color-bg);padding:18px 20px;display:flex;gap:16px;align-items:baseline">
+          <div style="font-size:15px;letter-spacing:.06em;text-transform:uppercase;font-family:var(--font-heading);color:var(--color-accent);min-width:104px">Jump scares</div>
+          <div style="font-size:17px">Only from animatronics.</div>
+        </div>
+        <div style="background:var(--color-bg);padding:18px 20px;display:flex;gap:16px;align-items:baseline">
+          <div style="font-size:15px;letter-spacing:.06em;text-transform:uppercase;font-family:var(--font-heading);color:var(--color-accent);min-width:104px">Fog</div>
+          <div style="font-size:17px">Yes: theatrical haze, thick in spots.</div>
+        </div>
+        <div style="background:var(--color-bg);padding:18px 20px;display:flex;gap:16px;align-items:baseline">
+          <div style="font-size:15px;letter-spacing:.06em;text-transform:uppercase;font-family:var(--font-heading);color:var(--color-accent);min-width:104px">Strobes</div>
+          <div style="font-size:17px">Possibly, in one short stretch. If you're photosensitive, ask at the door and we'll switch them off.</div>
+        </div>
+        <div style="background:var(--color-bg);padding:18px 20px;display:flex;gap:16px;align-items:baseline">
+          <div style="font-size:15px;letter-spacing:.06em;text-transform:uppercase;font-family:var(--font-heading);color:var(--color-accent);min-width:104px">Contact</div>
+          <div style="font-size:17px">Never. Nobody touches you, nobody chases you.</div>
+        </div>
+        <div style="background:var(--color-bg);padding:18px 20px;display:flex;gap:16px;align-items:baseline">
+          <div style="font-size:15px;letter-spacing:.06em;text-transform:uppercase;font-family:var(--font-heading);color:var(--color-accent);min-width:104px">Gore</div>
+          <div style="font-size:17px">No blood, no bodies, no clowns.</div>
+        </div>
+        <div style="background:var(--color-bg);padding:18px 20px;display:flex;gap:16px;align-items:baseline">
+          <div style="font-size:15px;letter-spacing:.06em;text-transform:uppercase;font-family:var(--font-heading);color:var(--color-accent);min-width:104px">Strollers</div>
+          <div style="font-size:17px">It's a garage with tight turns. Carry the little ones.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="photos" style="padding:96px 0 0">
+    <div style="max-width:1100px;margin:0 auto;padding:0 28px;display:flex;flex-wrap:wrap;gap:20px;align-items:flex-end;justify-content:space-between">
+      <div>
+        <h6 style="color:var(--color-accent);margin-bottom:16px">Previously, on Colfax Rd</h6>
+        <h2 style="font-size:clamp(30px,4.4vw,50px);letter-spacing:0;line-height:1.05;max-width:16ch">Years of questionable decisions</h2>
+      </div>
+      <div style="display:flex;gap:10px">
+        <button type="button" class="btn btn-secondary btn-icon" aria-label="Previous photos" onClick="{{ scrollPrev }}">←</button>
+        <button type="button" class="btn btn-secondary btn-icon" aria-label="Next photos" onClick="{{ scrollNext }}">→</button>
+      </div>
+    </div>
+
+    <div class="ss-rail" ref="{{ railRef }}" style="margin-top:36px;display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:0 28px;scrollbar-width:none">
+      <div style="flex:none;width:14px"></div>
+      <figure style="flex:none;width:clamp(240px,32vw,380px);scroll-snap-align:center;margin:0">
+        <div class="lighten" style="position:relative;width:100%;aspect-ratio:4/5;border-radius:var(--radius-md);overflow:hidden">
+          <img src="./assets/swing.jpg" alt="A ghostly girl in a white dress on a rope swing, lit in blacklight blue and pink against a painted graveyard backdrop" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <figcaption style="margin-top:10px;font-size:12px">She swings whether you look or not</figcaption>
+      </figure>
+      <figure style="flex:none;width:clamp(240px,32vw,380px);scroll-snap-align:center;margin:0">
+        <div class="lighten" style="position:relative;width:100%;aspect-ratio:4/5;border-radius:var(--radius-md);overflow:hidden">
+          <img src="./assets/graveyard.jpg" alt="Blacklit graveyard scene with headstones, a screaming skull and glowing skeletal hands" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <figcaption style="margin-top:10px;font-size:12px">The back garden. Residents not resting.</figcaption>
+      </figure>
+      <figure style="flex:none;width:clamp(240px,32vw,380px);scroll-snap-align:center;margin:0">
+        <div class="lighten" style="position:relative;width:100%;aspect-ratio:4/5;border-radius:var(--radius-md);overflow:hidden">
+          <img src="./assets/lantern.jpg" alt="Glowing green cobwebs strung along a brick wall beside a skull lantern" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <figcaption style="margin-top:10px;font-size:12px">Cobwebs, hand-strung, every single year</figcaption>
+      </figure>
+      <figure style="flex:none;width:clamp(240px,32vw,380px);scroll-snap-align:center;margin:0">
+        <div class="lighten" style="position:relative;width:100%;aspect-ratio:4/5;border-radius:var(--radius-md);overflow:hidden">
+          <img src="./assets/cauldron.jpg" alt="A skeleton pouring glowing green slime into a black cauldron under blacklight" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <figcaption style="margin-top:10px;font-size:12px">Punch is self-serve. We advise against it.</figcaption>
+      </figure>
+      <figure style="flex:none;width:clamp(240px,32vw,380px);scroll-snap-align:center;margin:0">
+        <div class="lighten" style="position:relative;width:100%;aspect-ratio:4/5;border-radius:var(--radius-md);overflow:hidden">
+          <img src="./assets/goback.jpg" alt="A red-lit reaper figure in front of a wall painted with dripping letters" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <figcaption style="margin-top:10px;font-size:12px">The wall leaves fairly clear instructions</figcaption>
+      </figure>
+      <figure style="flex:none;width:clamp(240px,32vw,380px);scroll-snap-align:center;margin:0">
+        <div class="lighten" style="position:relative;width:100%;aspect-ratio:4/5;border-radius:var(--radius-md);overflow:hidden">
+          <img src="./assets/hanging.jpg" alt="A shrouded figure hanging upside down with a red glow at its head" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <figcaption style="margin-top:10px;font-size:12px">Just hanging around by the exit</figcaption>
+      </figure>
+      <div style="flex:none;width:14px"></div>
+    </div>
+  </section>
+
+  <section id="dates" style="max-width:1100px;margin:0 auto;padding:96px 28px 0;scroll-margin-top:60px">
+    <sc-if value="{{ phaseCountdown }}" hint-placeholder-val="{{ true }}">
+      <div style="border:1px solid var(--color-divider);border-radius:var(--radius-lg);padding:clamp(28px,5vw,56px);background:linear-gradient(140deg, color-mix(in srgb, var(--color-accent-900) 40%, transparent), transparent 70%);display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:40px;align-items:center">
+        <div>
+          <h6 style="color:var(--color-accent);margin-bottom:14px">{{ cdKicker }}</h6>
+          <h2 style="font-size:clamp(26px,3.4vw,38px);letter-spacing:0;line-height:1.1">{{ cdTitle }}</h2>
+          <p class="text-muted" style="margin-top:12px;font-size:17px">Gates creak open at 5pm. Last group walks in fifteen minutes before close.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
+          <div style="text-align:center;padding:18px 6px;border:1px solid var(--color-divider);border-radius:var(--radius-md)">
+            <div style="font-size:clamp(26px,3.6vw,40px);font-family:var(--font-heading);font-weight:500;line-height:1;font-variant-numeric:tabular-nums">{{ cdDays }}</div>
+            <div class="text-muted" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-family:var(--font-heading);margin-top:8px">Days</div>
+          </div>
+          <div style="text-align:center;padding:18px 6px;border:1px solid var(--color-divider);border-radius:var(--radius-md)">
+            <div style="font-size:clamp(26px,3.6vw,40px);font-family:var(--font-heading);font-weight:500;line-height:1;font-variant-numeric:tabular-nums">{{ cdHours }}</div>
+            <div class="text-muted" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-family:var(--font-heading);margin-top:8px">Hrs</div>
+          </div>
+          <div style="text-align:center;padding:18px 6px;border:1px solid var(--color-divider);border-radius:var(--radius-md)">
+            <div style="font-size:clamp(26px,3.6vw,40px);font-family:var(--font-heading);font-weight:500;line-height:1;font-variant-numeric:tabular-nums">{{ cdMins }}</div>
+            <div class="text-muted" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-family:var(--font-heading);margin-top:8px">Min</div>
+          </div>
+          <div style="text-align:center;padding:18px 6px;border:1px solid var(--color-divider);border-radius:var(--radius-md)">
+            <div style="font-size:clamp(26px,3.6vw,40px);font-family:var(--font-heading);font-weight:500;line-height:1;font-variant-numeric:tabular-nums;color:var(--color-accent)">{{ cdSecs }}</div>
+            <div class="text-muted" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-family:var(--font-heading);margin-top:8px">Sec</div>
+          </div>
+        </div>
+        <div style="grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;padding-top:28px;border-top:1px solid var(--color-divider)">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 18px;border:1px solid var(--color-divider);border-radius:var(--radius-md)">
+            <div style="font-family:var(--font-heading);font-weight:500;font-size:17px">Fri, Oct 30</div>
+            <div class="text-muted" style="font-size:17px;font-variant-numeric:tabular-nums">5:00 – 8:00pm</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 18px;border:1px solid var(--color-divider);border-radius:var(--radius-md)">
+            <div style="font-family:var(--font-heading);font-weight:500;font-size:17px">Sat, Oct 31</div>
+            <div class="text-muted" style="font-size:17px;font-variant-numeric:tabular-nums">5:00 – 8:00pm</div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ phaseOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="border:1px solid var(--color-divider);border-radius:var(--radius-lg);padding:clamp(28px,5vw,56px);background:linear-gradient(140deg, color-mix(in srgb, var(--color-accent-900) 40%, transparent), transparent 70%);display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:40px;align-items:center">
+        <div>
+          <h6 style="color:var(--color-accent);margin-bottom:14px;display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:var(--color-accent);box-shadow:0 0 12px var(--color-accent)"></span>Open right now</h6>
+          <h2 style="font-size:clamp(26px,3.4vw,38px);letter-spacing:0;line-height:1.1">The garage door is up. Come on over.</h2>
+          <p class="text-muted" style="margin-top:12px;font-size:17px">Open until 8:00pm tonight. Last group walks in at 7:45.</p>
+        </div>
+        <div style="grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;padding-top:28px;border-top:1px solid var(--color-divider)">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 18px;border:1px solid var(--color-divider);border-radius:var(--radius-md)">
+            <div style="font-family:var(--font-heading);font-weight:500;font-size:17px">Fri, Oct 30</div>
+            <div class="text-muted" style="font-size:17px;font-variant-numeric:tabular-nums">5:00 – 8:00pm</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 18px;border:1px solid var(--color-divider);border-radius:var(--radius-md)">
+            <div style="font-family:var(--font-heading);font-weight:500;font-size:17px">Sat, Oct 31</div>
+            <div class="text-muted" style="font-size:17px;font-variant-numeric:tabular-nums">5:00 – 8:00pm</div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ phaseOver }}" hint-placeholder-val="{{ false }}">
+      <div style="border:1px solid var(--color-divider);border-radius:var(--radius-lg);padding:clamp(28px,5vw,56px);background:linear-gradient(140deg, color-mix(in srgb, var(--color-accent-900) 40%, transparent), transparent 70%)">
+        <h6 style="color:var(--color-accent);margin-bottom:14px">That's a wrap for 2026</h6>
+        <h2 style="font-size:clamp(26px,3.4vw,38px);letter-spacing:0;line-height:1.1;max-width:22ch">See you next year — if you survive.</h2>
+        <p class="text-muted" style="margin-top:14px;font-size:18px;max-width:56ch;text-wrap:pretty">The fog machine is resting. The spider is not. Thanks to everyone who walked through this October — dates for next year will show up here.</p>
+      </div>
+    </sc-if>
+  </section>
+
+  <section id="visit" style="max-width:1100px;margin:0 auto;padding:96px 28px 0">
+    <h6 style="color:var(--color-accent);margin-bottom:16px">Getting here</h6>
+    <h2 style="font-size:clamp(30px,4.4vw,50px);letter-spacing:0;line-height:1.05;max-width:16ch">Follow the fog to Colfax</h2>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;margin-top:40px;align-items:start">
+      <div>
+        <div style="font-size:clamp(22px,2.6vw,30px);font-family:var(--font-heading);font-weight:500;line-height:1.25">15 Colfax Rd<br>Springfield, NJ 07081</div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px">
+          <a class="btn btn-primary" style="font-family:var(--font-heading);font-size:14px;letter-spacing:.04em;padding:11px 20px;" href="https://maps.google.com/?q=15+Colfax+Rd,+Springfield,+NJ+07081" target="_blank" rel="noopener">Open in Google Maps</a>
+          <a class="btn btn-secondary" style="font-family:var(--font-heading);font-size:14px;letter-spacing:.04em;padding:11px 20px;" href="https://maps.apple.com/?q=15+Colfax+Rd,+Springfield,+NJ+07081" target="_blank" rel="noopener">Apple Maps</a>
+        </div>
+
+        <div style="margin-top:32px;display:flex;flex-direction:column;gap:18px">
+          <div>
+            <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-family:var(--font-heading);color:var(--color-accent);margin-bottom:6px">Parking</div>
+            <p style="margin:0;font-size:17px;max-width:40ch;color:color-mix(in srgb, var(--color-text) 82%, transparent)">Street parking across the street.</p>
+          </div>
+          <div style="border-left:2px solid var(--color-accent);padding-left:16px">
+            <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-family:var(--font-heading);color:var(--color-accent);margin-bottom:6px">Drivers, please read this one</div>
+            <p style="margin:0;font-size:17px;max-width:40ch;color:color-mix(in srgb, var(--color-text) 82%, transparent)">The street is full of trick-or-treaters, and small ghosts do not look both ways. Crawl. Headlights on. The scariest thing on Colfax Rd should be the spider.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="position:relative;width:100%;height:clamp(280px,34vw,400px);border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--color-divider)">
+        <iframe title="Map to 15 Colfax Rd, Springfield NJ" src="https://maps.google.com/maps?q=15%20Colfax%20Rd%2C%20Springfield%2C%20NJ%2007081&amp;z=17&amp;output=embed" style="width:100%;height:100%;border:0;filter:invert(1) hue-rotate(180deg) saturate(.5) brightness(.94) contrast(.95)" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer style="max-width:1100px;margin:120px auto 0;padding:32px 28px 56px;border-top:1px solid var(--color-divider);display:flex;flex-wrap:wrap;gap:16px;align-items:baseline;justify-content:space-between">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="font-family:var(--font-heading);font-weight:500;font-size:18px">springfieldscream.com</div>
+      <a href="mailto:boo@springfieldscream.com" style="font-size:16px;text-decoration:none">boo@springfieldscream.com</a>
+      <div class="text-muted" style="font-size:12px">Questions, strobe requests, or a lost jacket — this reaches us.</div>
+    </div>
+    <div class="text-muted" style="font-size:15px;max-width:52ch;text-wrap:pretty">A garage in Springfield, New Jersey. Free every October. Run by neighbors, powered by extension cords, haunted by one extremely committed spider.</div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;previewPhase&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;auto&quot;,&quot;countdown&quot;,&quot;open&quot;,&quot;over&quot;],&quot;default&quot;:&quot;auto&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Dates&quot;}}">
+class Component extends DCLogic {
+  state = { now: Date.now() };
+  componentDidMount() {
+    this.t = setInterval(() => this.setState({ now: Date.now() }), 1000);
+  }
+  componentWillUnmount() { clearInterval(this.t); }
+  rail = React.createRef();
+  nudge(dir) {
+    const el = this.rail.current || document.querySelector(".ss-rail");
+    if (!el) return;
+    const card = el.querySelector("figure");
+    const step = card ? card.getBoundingClientRect().width + 18 : el.clientWidth * 0.8;
+    el.scrollBy({ left: dir * step, behavior: "smooth" });
+  }
+  renderVals() {
+    const T = s => new Date(s).getTime();
+    const nights = [
+      { start: T("2026-10-30T17:00:00-04:00"), end: T("2026-10-30T20:00:00-04:00"), label: "Friday, October 30" },
+      { start: T("2026-10-31T17:00:00-04:00"), end: T("2026-10-31T20:00:00-04:00"), label: "Halloween night" }
+    ];
+    const now = this.state.now;
+    const preview = this.props.previewPhase ?? "auto";
+    let phase, next = nights.find(n => now < n.end);
+    if (preview !== "auto") { phase = preview; next = nights[0]; }
+    else if (!next) phase = "over";
+    else if (now >= next.start) phase = "open";
+    else phase = "countdown";
+    const d = preview === "countdown" ? 25 * 864e5 + 3723e3 : Math.max(0, (next ? next.start : 0) - now);
+    const pad = n => String(n).padStart(2, "0");
+    const first = next === nights[0];
+    return {
+      railRef: this.rail,
+      scrollPrev: () => this.nudge(-1),
+      scrollNext: () => this.nudge(1),
+      phaseCountdown: phase === "countdown",
+      phaseOpen: phase === "open",
+      phaseOver: phase === "over",
+      heroLabel: first ? "Opens in" : "Last night in",
+      heroWhen: first ? "Fri Oct 30 · 5pm" : "Sat Oct 31 · 5pm",
+      cdKicker: first ? "Opening night" : "Last night",
+      cdTitle: first ? "Friday, October 30 at 5:00pm" : "Halloween night, 5:00pm",
+      cdDays: Math.floor(d / 864e5), cdHours: pad(Math.floor(d / 36e5) % 24),
+      cdMins: pad(Math.floor(d / 6e4) % 60), cdSecs: pad(Math.floor(d / 1e3) % 60)
+    };
+  }
+}
+</script>
+</body>
+</html>
